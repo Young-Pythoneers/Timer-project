@@ -1,30 +1,30 @@
-class Timer:
-    def __init__(self, name):
-        self.name = name
-        self.timestamp = time.time()
-        self.seconds_passed = 0
-        self.is_timing = False
-        #get from database if name exists in database
-        #else add to database
+from dataclasses import dataclass
+from datetime import datetime
 
+@dataclass
+class TimerEntry:
+    '''Class that stores timer data'''
+    start_time: str
+    stop_time: str
+
+class Timer:
+    '''Class that starts and stops a timer and returns a TimerEntry instance'''
+    start_time: datetime
+    stop_time: datetime
     def start(self):
-        #set current time as timestamp in database
-        #set is_timing local and in database to True
-        pass
+        self.start_time = datetime.utcnow()
 
     def stop(self):
-        #Get timestamp from database
-        #set seconds_passed to current_time - timestamp
-        #set is_timing to False
-        #update everything to database
-        pass
+        self.stop_time = datetime.utcnow()
+        return self.make_timer_entry()
 
-    def reset(self):
-        #Set self.seconds_passed to zero
-        pass
+    def make_timer_entry(self):
+        start_time = self.start_time.isoformat()
+        stop_time = self.stop_time.isoformat()
+        return TimerEntry(start_time, stop_time)
 
-    def read(self):
-        #Get timestamp from database
-        #if is_timing: subtract timestamp from current time
-        #else print seconds_passed retrieved from database
-        pass
+if __name__ == "__main__":
+    timer = Timer()
+    timer.start()
+    timer_entry = timer.stop()
+    print(timer_entry.start_time, timer_entry.stop_time)

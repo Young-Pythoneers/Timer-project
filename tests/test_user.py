@@ -1,5 +1,5 @@
 import pytest
-from project_timer.user.user import User
+from project_timer.user import User
 
 @pytest.mark.parametrize(
     "test_input1, test_input2", [("Henk", 3, ), ("Kees", 5), ("Aaron", 9), ("Lily", 1)],

@@ -1,17 +1,31 @@
-class User():
-    def __init__(self, name: str, id: int):
-        self.name = str(name)#CHRISTIAAN: Het lijkt me niet nodig om dit naar een string te casten. Het zou al een string moeten zijn.
-        self.id = int(id)#CHRISTIAAN: Het lijkt me ook niet nodig om dit naar een int te casten.
+from dataclasses import dataclass
+
+@dataclass
+class User:
+    """Class that stores the name and id of the user"""
+    name: str
+    id: int
+
 
     def welcome(self):
         if self.id < 10:
-            return(f"Hello {self.name}, you have employee rights")
+            return f"{self.name}, you have employee rights"
         if self.id >= 10:
-            return(f"Hello {self.name}, you have admin rights")
+            return f"{self.name}, you have admin rights"
 
-    def set_timer_entry(self,TimerEntry):
+    def set_timer_entry(self, TimerEntry):
+        pass
+
+    def activate_timer(self, Timer):
+        pass
+
+    def book_project(self, project):
+        pass
+
+    def book_task(self, Task):
         pass
 
 
-    def activate_timer(self,Timer):
-        pass
+if __name__ == "__main__":
+    user = User("Dennis", 1)
+    print(user.welcome())

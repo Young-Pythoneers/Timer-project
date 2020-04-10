@@ -5,8 +5,8 @@ from project_timer.user import User
 @dataclass
 class TimerEntry:
     '''Class that stores timer data'''
-    start_time: str
-    stop_time: str
+    start_time: datetime
+    stop_time: datetime
     created_by: User
 
 @dataclass
@@ -24,9 +24,7 @@ class Timer:
         return self.make_timer_entry()
 
     def make_timer_entry(self):
-        start_time = self.start_time.isoformat()
-        stop_time = self.stop_time.isoformat()
-        return TimerEntry(start_time, stop_time, self.created_by)
+        return TimerEntry(self.start_time, self.stop_time, self.created_by)
 
 if __name__ == "__main__":
     timer = Timer(User("Dirck", 3))

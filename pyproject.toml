@@ -7,6 +7,10 @@ authors = ["Nathan Hoogendorp <Nathan.Hoogendorp@ordina.nl>"]
 [tool.poetry.dependencies]
 python = "^3.7"
 pytest = "^5.4.1"
+isort = "^4.3.21"
+black = "^19.10b0"
+flake8 = "^3.7.9"
+pre-commit = "^2.2.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

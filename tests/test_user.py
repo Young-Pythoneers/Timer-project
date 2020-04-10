@@ -7,7 +7,7 @@ from project_timer.user import User
 def test_user_employee(test_input1, test_input2):
     cls = User(test_input1, test_input2)
     print(cls.welcome())
-    assert cls.welcome() == f"Hello {test_input1}, you have employee rights"
+    assert cls.welcome() == f"{test_input1}, you have employee rights"
 
 
 @pytest.mark.parametrize(
@@ -16,5 +16,5 @@ def test_user_employee(test_input1, test_input2):
 def test_user_admin(test_input1, test_input2):
     cls = User(test_input1, test_input2)
     print(cls.welcome())
-    assert cls.welcome() == f"Hello {test_input1}, you have admin rights"
+    assert cls.welcome() == f"{test_input1}, you have admin rights"
 

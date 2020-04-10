@@ -1,11 +1,12 @@
 from dataclasses import dataclass
 
+
 @dataclass
 class User:
     """Class that stores the name and id of the user"""
+
     name: str
     id: int
-
 
     def welcome(self):
         if self.id < 10:

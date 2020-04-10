@@ -2,16 +2,20 @@ from dataclasses import dataclass
 from datetime import datetime
 from project_timer.user import User
 
+
 @dataclass
 class TimerEntry:
-    '''Class that stores timer data'''
+    """Class that stores timer data"""
+
     start_time: datetime
     stop_time: datetime
     created_by: User
 
+
 @dataclass
 class Timer:
-    '''Class that starts and stops a timer and returns a TimerEntry instance'''
+    """Class that starts and stops a timer and returns a TimerEntry instance"""
+
     created_by: User
     start_time: datetime = None
     stop_time: datetime = None
@@ -25,6 +29,7 @@ class Timer:
 
     def make_timer_entry(self):
         return TimerEntry(self.start_time, self.stop_time, self.created_by)
+
 
 if __name__ == "__main__":
     timer = Timer(User("Dirck", 3))

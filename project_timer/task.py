@@ -8,7 +8,8 @@ from project_timer.user import User
 
 @dataclass
 class Task:
-    '''Class that stores task specific data'''
+    """Class that stores task specific data"""
+
     name: str
     _created_by: User
     _id: int = randint(1, 100)

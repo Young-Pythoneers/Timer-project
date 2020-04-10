@@ -7,11 +7,14 @@ from project_timer.user import User
 
 @dataclass
 class Project:
-    '''Class that stores task specific data'''
+    """Class that stores task specific data"""
+
     id: str
     name: str
     created_by: User
-    entries: List[TimerEntry] = List #CHRISTIAAN: ik denk dat je "= List" moet vervangen door "= []"
+    entries: List[
+        TimerEntry
+    ] = List  # CHRISTIAAN: ik denk dat je "= List" moet vervangen door "= []"
 
 
 if __name__ == "__main__":

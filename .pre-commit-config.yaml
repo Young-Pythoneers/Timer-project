@@ -20,5 +20,5 @@ repos:
         name: black
         stages: [commit]
         language: system
-        entry: black
+        entry: black .
         types: [python]

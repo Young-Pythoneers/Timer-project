@@ -1,1 +1,15 @@
-lkn
+{
+  "users":[
+    {"name": "Rick", "id": 87 },
+    {"name": "Kcir", "id": 78 }
+  ],
+  "tasks":[
+    {"name": "cooking", "id": 55, "usr_id": 87},
+    {"name": "cleaning", "id": 44, "usr_id": 78}
+  ],
+  "entries":[
+    {"start_time": "15:00UTC00", "stop_time": "15:30UTC00", "task_id": 55},
+    {"start_time": "15:00UTC00", "stop_time": "15:30UTC00", "task_id": 44}
+  ]
+
+}

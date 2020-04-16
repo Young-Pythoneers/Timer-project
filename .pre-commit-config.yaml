@@ -1,24 +1,19 @@
 repos:
--   repo: local
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+    -   id: check-yaml
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+-   repo: https://github.com/psf/black
+    rev: 19.3b0
+    hooks:
+    -   id: black
+-   repo: https://github.com/pre-commit/mirrors-isort
+    rev: ''
     hooks:
     -   id: isort
-        name: isort
-        stages: [commit]
-        language: system
-        entry: isort -rc --atomic .
-        types: [python]
-
-    -   id: flake8
-        name: flake8
-        stages: [commit]
-        language: system
-        entry: flake8
-        types: [python]
-        exclude: setup.py
-
-    -   id: black
-        name: black
-        stages: [commit]
-        language: system
-        entry: black .
-        types: [python]
+#-   repo: https://gitlab.com/pycqa/flake8
+#    rev: ''
+#    hooks:
+#    -   id: flake8

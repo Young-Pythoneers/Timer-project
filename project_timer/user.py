@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from random import randint
 
 
 @dataclass
@@ -6,7 +7,7 @@ class User:
     """Class that stores the name and id of the user"""
 
     name: str
-    id: int
+    id: int = randint(1, 100)
 
     def welcome(self):
         if self.id < 10:
@@ -28,5 +29,6 @@ class User:
 
 
 if __name__ == "__main__":
-    user = User("Dennis", 1)
+    user = User("Dennis")
+    print(user.id)
     print(user.welcome())

@@ -1,5 +1,4 @@
 import pytest
-
 from project_timer.user import User
 
 

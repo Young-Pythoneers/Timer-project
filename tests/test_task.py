@@ -19,7 +19,7 @@ def test_add_entry(task, time_entry):
     assert time_entry in task.entries
 
 
-def test_add_entry(task, time_entry):
+def test_remove_entry(task, time_entry):
     task.add_entry(time_entry)
     task.remove_entry(time_entry)
     assert time_entry not in task.entries

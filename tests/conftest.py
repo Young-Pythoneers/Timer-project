@@ -1,7 +1,6 @@
 from datetime import datetime, timedelta
 
 import pytest
-
 from project_timer.task import Task
 from project_timer.timer import TimerEntry
 from project_timer.user import User

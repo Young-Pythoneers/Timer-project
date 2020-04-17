@@ -9,10 +9,10 @@ repos:
     rev: 19.3b0
     hooks:
     -   id: black
--   repo: https://github.com/pre-commit/mirrors-isort
-    rev: ''
-    hooks:
-    -   id: isort
+#-   repo: https://github.com/pre-commit/mirrors-isort
+#    rev: ''
+#    hooks:
+#    -   id: isort
 #-   repo: https://gitlab.com/pycqa/flake8
 #    rev: ''
 #    hooks:

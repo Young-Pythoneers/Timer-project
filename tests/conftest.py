@@ -22,10 +22,10 @@ def user():
 
 
 @pytest.fixture
-def time_entry(start_time, end_time, user):
-    return TimerEntry(start_time, end_time, user)
+def time_entry(start_time, end_time, task_id):
+    return TimerEntry(start_time, end_time, 3)
 
 
 @pytest.fixture
 def task(user):
-    return Task("fix code", user)
+    return Task("fix code", user.id)

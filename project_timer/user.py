@@ -10,14 +10,8 @@ from random import randint
 class User:
     """Class that stores the name and id of the user"""
 
-    name: str
-    id: int = randint(1, 100)
-
-    def welcome(self):
-        return f"Welcome{self.name}, your ID is {self.id}"
-
-
-##########################################
+    unique_id: str
+    given_password: str
 
 
 def create_password(pswrd, salt=os.urandom(32)):
@@ -56,4 +50,9 @@ acces_check = password_comparrison(
     correct_password, binascii.unhexlify(salt.encode()), "teddy"
 )  # teddy is the right password
 
+
 print(acces_check)
+
+
+# def welcome(self):
+#     return f"Welcome{self.name}, your ID is {self.id}"

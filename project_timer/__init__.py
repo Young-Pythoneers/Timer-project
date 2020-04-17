@@ -8,4 +8,3 @@ if __name__ == "__main__":
     id = 234
     A = Combiner(name, id)
     c = A.usr()
-    print(c.id)

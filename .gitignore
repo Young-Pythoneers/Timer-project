@@ -265,4 +265,4 @@ fabric.properties
 *.csv
 
 # json files
-*.json
+#*.json

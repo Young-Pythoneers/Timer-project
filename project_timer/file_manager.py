@@ -87,3 +87,7 @@ class FileManager:
         entries = [dict_to_entry(entry) for entry in data["entries"]]
 
         return users, tasks, entries
+
+
+if __name__ == "__main__":
+    FileManager()

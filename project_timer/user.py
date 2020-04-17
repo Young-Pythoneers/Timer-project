@@ -10,25 +10,10 @@ class User:
     id: int = randint(1, 100)
 
     def welcome(self):
-        if self.id < 10:
-            return f"{self.name}, you have employee rights"
-        if self.id >= 10:
-            return f"{self.name}, you have admin rights"
-
-    def set_timer_entry(self, TimerEntry):
-        pass
-
-    def activate_timer(self, Timer):
-        pass
-
-    def book_project(self, project):
-        pass
-
-    def book_task(self, Task):
-        pass
+        return f"Welcome{self.name}, your ID is {self.id}"
 
 
-if __name__ == "__main__":
-    user = User("Dennis")
-    print(user.id)
-    print(user.welcome())
+# if __name__ == "__main__":
+#     user = User("Dennis")
+#     print(user.id)
+#     print(user.welcome())

@@ -263,3 +263,6 @@ fabric.properties
 
 # CSV files
 *.csv
+
+# json files
+*.json

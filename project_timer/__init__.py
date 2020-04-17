@@ -7,4 +7,5 @@ if __name__ == "__main__":
     name = "Chad"
     id = 234
     A = Combiner(name, id)
-    print(A.usr())
+    c = A.usr()
+    print(c.id)

@@ -11,23 +11,16 @@ class Task:
     """Class that stores task specific data"""
 
     name: str
-    _created_by: User
+    _created_by: int
     _id: int = randint(1, 100)
-    entries: List[TimerEntry] = field(default_factory=list)
 
     @property
     def id(self):
         return self._id
 
     @property
-    def created_by(self) -> User:
+    def created_by(self):
         return self._created_by
-
-    def add_entry(self, entry: TimerEntry) -> None:
-        self.entries.append(entry)
-
-    def remove_entry(self, entry: TimerEntry) -> None:
-        self.entries.remove(entry)
 
 
 if __name__ == "__main__":

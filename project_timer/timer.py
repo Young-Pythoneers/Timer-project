@@ -10,14 +10,15 @@ class TimerEntry:
 
     start_time: datetime
     stop_time: datetime
-    created_by: User
+    task_id: int
 
 
 @dataclass
 class Timer:
     """Class that starts and stops a timer and returns a TimerEntry instance"""
 
-    created_by: User
+    task_id: int
+    created_by: int
     start_time: datetime = None
     stop_time: datetime = None
 

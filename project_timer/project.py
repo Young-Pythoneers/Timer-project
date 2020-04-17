@@ -11,10 +11,7 @@ class Project:
 
     id: str
     name: str
-    created_by: User
-    entries: List[
-        TimerEntry
-    ] = List  # CHRISTIAAN: ik denk dat je "= List" moet vervangen door "= []"
+    created_by: int
 
 
 if __name__ == "__main__":

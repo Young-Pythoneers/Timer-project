@@ -3,7 +3,9 @@ import hashlib
 import json
 import os
 from dataclasses import dataclass
-from random import randint
+import os.path
+from os import path
+from getpass import getpass
 
 
 @dataclass
@@ -45,14 +47,82 @@ def password_comparrison(correct_password, salt, given_passwords):
         return "Youre a filthy liar go away"
 
 
-correct_password, salt = get_employee_data()
-acces_check = password_comparrison(
-    correct_password, binascii.unhexlify(salt.encode()), "teddy"
-)  # teddy is the right password
+# correct_password, salt = get_employee_data()
+# acces_check = password_comparrison(
+#     correct_password, binascii.unhexlify(salt.encode()), "teddy"
+# )  # teddy is the right password
 
-
-print(acces_check)
+#
+# print(acces_check)
 
 
 # def welcome(self):
 #     return f"Welcome{self.name}, your ID is {self.id}"
+##############################################################
+##############################################################
+
+
+def check_data_file():
+    file_exists = path.exists("Employeess.json")
+    if file_exists == False:
+        # users = {} can maybe be used as overall dictionary
+        with open("Employeess.json", "w") as outfile:
+            pass
+    else:
+        pass
+
+
+def check_user(emplyee_id):
+    with open("Employeess.json", "r") as json_file:
+        data = json.load(json_file)
+        if emplyee_id not in data:
+            print("Your account does'nt exist")
+            create_user(emplyee_id)
+        else:
+            pass
+
+
+# check_user("12")
+
+
+def create_user(employee_id):
+    # Maybe check correctness of data ??
+    with open("Employeess.json", "w") as json_file:
+        data = {}
+
+        reply = (
+            str(input("Do you want to create a new user," + " (y/n): ")).lower().strip()
+        )
+        if reply[:1] == "y":
+            data[employee_id] = []
+            first_name = str(input("Enter your first name: "))
+            last_name = str(input("Enter your last name: "))
+            password = getpass("Enter your password: ")
+            encrypted_password, salt = create_password(password)
+
+            data[employee_id].append(
+                {
+                    "first name": first_name,
+                    "last name": last_name,
+                    "password": encrypted_password,
+                    "salt": salt,
+                }
+            )
+
+            json.dump(data, json_file, indent=4)
+
+        elif reply[:1] == "n":
+            print("The application will now be closed")
+        else:
+            print("Invalid Input")
+            return create_user(employee_id)
+
+    # with open("Employeess.json", "r") as json_file:
+    #     data = json.load(json_file)
+
+
+# create_user("12")
+
+
+check_data_file()
+create_user("12")

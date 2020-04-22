@@ -1,0 +1,14 @@
+{
+    "Accounts": [
+        {
+            "14": [
+                {
+                    "first name": "Barney",
+                    "last name": "Stinson",
+                    "password": "26a70fdfea92fbd4877abe2e7178b0789f121538a5bf8d657c96cb17a6d39875",
+                    "salt": "4c90ef37d329b320a1e46a7bceb086ed3e85146bbc09f3a538a6335e4498195c"
+                }
+            ]
+        }
+    ]
+}

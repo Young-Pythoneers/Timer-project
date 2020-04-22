@@ -30,7 +30,7 @@ def check_data_file() -> None:
         pass
 
 
-def check_account_existence(employee_id: str) -> None:
+def check_account_existence(employee_id: str) -> (str, str):
     """Checks if account already exists or not in Employees.json file.
     If not then create_account function is called, and if it does then
     the user will be verified based on a password comparison.
@@ -57,6 +57,7 @@ def check_account_existence(employee_id: str) -> None:
             )
             if put_in_password[0] == correct_password:
                 logged_in(first_name, last_name)
+                return first_name, last_name
             else:
                 print("Sorry this password is not correct, please try again")
                 log_in_attempts += 1
@@ -158,6 +159,7 @@ def create_user(employee_id: str) -> None:
             return create_user(employee_id)
 
     append_account(data)
+    check_account_existence(employee_id)
 
 
 def create_password(pswrd: str, salt: bytes = os.urandom(32)) -> (str, str):

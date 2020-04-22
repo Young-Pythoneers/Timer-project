@@ -1,14 +1,13 @@
 from project_timer.task import Task
 from project_timer.timer import Timer
-from project_timer.user import User
+from project_timer.user import User, check_data_file, check_account_existence
 
 
 class Combiner:
-    def __init__(self, name: str, id: int):
-        self.user = User(name, id)
-
-    def usr(self):
-        return self.user
+    def __init__(self, employee_id: str):
+        self.id = User(employee_id)
+        check_data_file()
+        check_account_existence(employee_id)
 
     # def start_task(self, task_name: str):
     #     task = Task(task_name, self.user)

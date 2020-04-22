@@ -1,6 +1,14 @@
 {
-  "30014":[
-    {"fname": "Peter", "lname":"Parker", "password": "aed94c72cab39b76ab803d183a48d52811467d467b888c4cbc7380e2aa9b5fa2", "salt": "b5ef676f51c5e1ea8e86f29f17d871650b1702d3242ef0cf8f51a75a8adc9c2f" }
-  ]
-
+    "Accounts": [
+        {
+            "14": [
+                {
+                    "first name": "Barney",
+                    "last name": "Stinson",
+                    "password": "26a70fdfea92fbd4877abe2e7178b0789f121538a5bf8d657c96cb17a6d39875",
+                    "salt": "4c90ef37d329b320a1e46a7bceb086ed3e85146bbc09f3a538a6335e4498195c"
+                }
+            ]
+        }
+    ]
 }

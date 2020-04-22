@@ -1,20 +1,12 @@
 import json
+from json import JSONDecodeError
 from typing import List
 
 from project_timer.task import Task
 from project_timer.timer import TimerEntry
 from project_timer.user import User
 
-
-def user_to_dict(user: User) -> dict:
-    dct = dict()
-    dct["name"] = user.name
-    dct["id"] = user.id
-    return dct
-
-
-def dict_to_user(dct: dict) -> User:
-    return User(dct["name"], dct["id"])
+""" handles all the file operations such as saving and retrieving data"""
 
 
 def task_to_dict(task: Task) -> dict:
@@ -44,50 +36,57 @@ def dict_to_entry(dct: dict) -> TimerEntry:
 
 READ_WRITE_MODE = "r+"
 READ_MODE = "r"
+WRITE_MODE = "w"
 ENCODING = "utf-8"
+
+FILENAME = "../data/data.json"
+
+
+def read_data(self) -> dict:
+    """tries to open data/data.json and return a dictionary of content, otherwise returns an empty dictionary"""
+    data = dict
+
+    try:
+        with open(self.filename, mode=READ_MODE, encoding=ENCODING) as f:
+            data = json.load(f)
+    except (FileNotFoundError, JSONDecodeError):
+        with open(self.filename, mode=WRITE_MODE, encoding=ENCODING) as f:
+            data["tasks"] = []
+            data["entries"] = []
+    return data
+
+
+def save_data(self, data: dict) -> None:
+    with open(FILENAME, mode=WRITE_MODE, encoding=ENCODING) as f:
+        json.dump(data, f, indent=4)
 
 
 class FileManager:
     """Class that handles all the file operations such as saving and retrieving data"""
 
-    def __init__(self):
-        self.filename = "../data/data.json"
-        self.file = None
-
-    def save(self, task: Task = None, entry: TimerEntry = None, user: User = None):
-        """takes task, entry and user and saves them in a file"""
-        try:
-            self.file = open(self.filename, mode=READ_WRITE_MODE, encoding=ENCODING)
-            data = json.load(self.file)
-        except FileNotFoundError:
-            data = dict()
-
-        data["users"].append(user_to_dict(user))
-        data["tasks"].append(task_to_dict(task))
-        data["entries"].append(entry_to_dict(entry))
-
-        json.dump(dict, self.file, ensure_ascii=False, indent=4)
+    def save_task(self, task: Task) -> None:
+        task_dct = task_to_dict(task)
+        data = read_data()
+        data["tasks"].append(task_dct)
+        save_data(data)
 
     def get_all_tasks_by_user(self, user: User) -> List[Task]:
         """returns a list of all tasks made by a given user"""
-        self.file = open(self.filename, "r", encoding="utf-8")
-        data = json.load(self.file)["tasks"]
+
+        data = read_data()
         tasks = [
-            dict_to_task(task) for task in data["tasks"] if task["usr_id"] == user.id
+            dict_to_task(task)
+            for task in data["tasks"]
+            if task["usr_id"] == user.employee_id
         ]
 
         return tasks
 
     def get_all(self) -> tuple:
-        """Returns a tuple of the whole file including users, tasks and entries"""
-        self.file = open(self.filename, mode=READ_MODE, encoding=ENCODING)
-        data = json.load(self.file)
-        users = [dict_to_user(usr) for usr in data["users"]]
+        """Returns a tuple of the file in a tuple containing tasks and entries"""
+
+        data = read_data()
         tasks = [dict_to_task(task) for task in data["tasks"]]
         entries = [dict_to_entry(entry) for entry in data["entries"]]
 
-        return users, tasks, entries
-
-
-if __name__ == "__main__":
-    FileManager()
+        return tasks, entries
